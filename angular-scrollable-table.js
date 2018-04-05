@@ -3,7 +3,7 @@
 
     var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
     angular.module('scrollable-table', [])
-        .directive('scrollableTable', ['$timeout', '$q', '$parse', function ($timeout, $q, $parse) {
+        .directive('scrollableTable', ['$timeout', '$q', function ($timeout, $q) {
             return {
                 transclude: true,
                 restrict: 'E',
@@ -214,8 +214,4 @@
                 }]
             };
         }]);
-
-    function _getScale(sizeCss){
-        return parseInt(sizeCss.replace(/px|%/, ''), 10);
-    }
 })(angular);
