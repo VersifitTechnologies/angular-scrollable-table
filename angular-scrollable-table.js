@@ -69,7 +69,7 @@
                     }
                     var headersAreFixed = $q.defer();
                     function fixHeaderWidths() {
-                        let table = getTable();
+                        var table = getTable();
                         if($scope.tableHeight === 'auto')
                             table.style.overflowY = 'hidden';
 
@@ -85,16 +85,17 @@
                             }
                         }
 
-                        let headerRow = getHeaderRow(),
+                        var headerRow = getHeaderRow(),
                             filterRow = getFilterRow(),
                             filtersShown = filterRow.length > 0,
                             hasColWidths = angular.isDefined($scope.columnWidths),
-                            hasScrollbar = $element.find(".scrollArea").height() < table.offsetHeight;
+                            hasScrollbar = $element.find(".scrollArea").height() < table.offsetHeight,
+                            i = 0;
 
                         table.style.tableLayout = 'auto';
 
-                        for(let i=0; i< headerRow.length; i++) {
-                            let el = headerRow[i],
+                        for(i=0; i< headerRow.length; i++) {
+                            var el = headerRow[i],
                                 filterEl = filtersShown ? filterRow[i] : undefined,
                                 width;
                             if(!hasColWidths || $scope.columnWidths[i] === 0) {
@@ -127,10 +128,10 @@
                         table.style.tableLayout = 'fixed';
 
                         //this loop cleans up any auto header widths and sets them to their actual width
-                        for(let i=0; i< headerRow.length; i++) {
+                        for(i=0; i< headerRow.length; i++) {
                             if(hasColWidths && $scope.columnWidths[i] !== 0)
                                 continue;
-                            let el = headerRow[i],
+                            var el = headerRow[i],
                                 width = el.parentElement.getBoundingClientRect().width,
                                 filterEl = filtersShown ? filterRow[i] : undefined;
 
@@ -191,7 +192,7 @@
                     $scope.$watch(function(){
                         if(first) {
                             //sets the header row(s) sizes
-                            let paddingTop = 92,
+                            var paddingTop = 92,
                                 height = 94;
                             if(!$scope.showFilters) {
                                 height = 33;
