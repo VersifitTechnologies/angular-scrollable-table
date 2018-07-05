@@ -77,10 +77,10 @@
                             //wraps header rows in divs for width resizing
                             if (!$element.find(".header .th-inner-header").length) {
                                 $element.find(".header").wrapInner('<div class="th-inner-header"></div>');
-                                $element.find(".header .th-inner-header:not(:has(.box))").wrapInner('<div class="box pl-2 pr-1"></div>');
+                                $element.find(".header .th-inner-header:not(:has(.box))").wrapInner('<div class="box"></div>');
                             }
                             if (!$element.find(".filter .th-inner").length) {
-                                $element.find(".filter").wrapInner('<div class="th-inner pt-0 px-2"></div>');
+                                $element.find(".filter").wrapInner('<div class="th-inner"></div>');
                                 $element.find(".filter .th-inner:not(:has(.box))").wrapInner('<div class="box"></div>');
                             }
                         }
@@ -192,11 +192,11 @@
                     $scope.$watch(function(){
                         if(first) {
                             //sets the header row(s) sizes
-                            var paddingTop = 92,
-                                height = 94;
+                            var paddingTop = 73,
+                                height = 74;
                             if(!$scope.showFilters) {
-                                height = 33;
-                                paddingTop = 32;
+                                height = 30;
+                                paddingTop = 29;
                                 $element.find(".scrollArea table .th-inner-header").css('height', height + 'px');
                             }
                             $element.find(".scrollableContainer").css('padding-top', paddingTop + 'px');
