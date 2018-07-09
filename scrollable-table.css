@@ -103,6 +103,8 @@
     border-left: none;
     border-top: none;
     color: #1A3F50;
+    font-size: 12px;
+    font-size: .75rem;
 }
 .scrollArea table.table-striped tbody tr:nth-of-type(odd) {
     background-color: #FFFFFF;
