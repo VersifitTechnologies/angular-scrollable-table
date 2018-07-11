@@ -48,7 +48,6 @@
 }
 .scrollArea table th {
     padding: 0 !important;
-    min-width: 40px;
 }
 
 .scrollArea table .th-inner-header {
@@ -71,9 +70,15 @@
     position: absolute;
     top: 22px;
     height: 52px;
-    z-index: 1;
     padding: 4px 8px 8px 8px;
 }
+
+.scrollArea table .th-inner-header.ff-table-header,
+.scrollArea table .th-inner.ff-table-header {
+    border-left:none;
+    border-right: 1px solid #DDE5EA;///swap in ff
+}
+
 
 .scrollArea table thead tr th:first-child .th-inner-header,
 .scrollArea table thead tr th:first-child .th-inner,
@@ -142,4 +147,8 @@
 
 .align-left {
      text-align: left;
+}
+
+div.ui-select-container .caret {
+    right:8px!important;
 }

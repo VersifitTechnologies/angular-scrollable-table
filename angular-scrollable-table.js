@@ -76,11 +76,19 @@
                         if(table.style.tableLayout === '') {
                             //wraps header rows in divs for width resizing
                             if (!$element.find(".header .th-inner-header").length) {
-                                $element.find(".header").wrapInner('<div class="th-inner-header"></div>');
+                                if(isFirefox)
+                                    $element.find(".header").wrapInner('<div class="th-inner-header ff-table-header"></div>');
+                                else
+                                    $element.find(".header").wrapInner('<div class="th-inner-header"></div>');
+
                                 $element.find(".header .th-inner-header:not(:has(.box))").wrapInner('<div class="box"></div>');
                             }
                             if (!$element.find(".filter .th-inner").length) {
-                                $element.find(".filter").wrapInner('<div class="th-inner"></div>');
+                                if(isFirefox)
+                                    $element.find(".filter").wrapInner('<div class="th-inner ff-table-header"></div>');
+                                else
+                                    $element.find(".filter").wrapInner('<div class="th-inner"></div>');
+
                                 $element.find(".filter .th-inner:not(:has(.box))").wrapInner('<div class="box"></div>');
                             }
                         }
@@ -164,15 +172,13 @@
                     var headerResizeDebounce = debounce(fixHeaderWidths, 500);
                     $element.find(".scrollArea").scroll(function (event) {
                         var IEWasAMistake = event.target.scrollLeft,
-                            headerElement = !isFirefox ? getHeaderRow() : $element.find('thead'),
+                            headerElement = getHeaderRow(),
                             vertScrollOnly = (parseInt(headerElement.css('margin-left'),10) + IEWasAMistake) === 0;
 
                         if(vertScrollOnly){
                             headerResizeDebounce();
                         }
-                        if(!isFirefox) {
-                            getFilterRow().css('margin-left', 0 - IEWasAMistake);
-                        }
+                        getFilterRow().css('margin-left', 0 - IEWasAMistake);
                         headerElement.css('margin-left', 0 - IEWasAMistake);
 
                     });
