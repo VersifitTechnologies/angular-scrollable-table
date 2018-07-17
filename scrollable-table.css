@@ -79,6 +79,15 @@
     border-right: 1px solid #DDE5EA;///swap in ff
 }
 
+.scrollArea table thead tr>:first-child .th-inner,
+.scrollArea table thead tr>:first-child .th-inner-header {
+    border-left:none;
+}
+
+.scrollArea table thead tr>:last-child .th-inner,
+.scrollArea table thead tr>:last-child .th-inner-header {
+    border-right: 1px solid #DDE5EA;
+}
 
 .scrollArea table thead tr th:first-child .th-inner-header,
 .scrollArea table thead tr th:first-child .th-inner,
